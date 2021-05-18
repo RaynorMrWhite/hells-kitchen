@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+	<div class="container-fluid">
+	</div>
+
+	<!-- <nav th:include="navigation::navigation"></nav> -->
+    <nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{~/home}">
+                <img src="https://i.ibb.co/pzxh93Q/hk-logo.png" width="77" height="77" class="d-inline-block align-top" alt="HK"></a>
+
+            <!-- Navbar Start -->
+            <a class="navbar-brand" th:href="@{~/home}"
+            >Hell's Kitchen</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Rezepte
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" th:href="@{~/rezept/findAll}">Alle Rezepte anzeigen</a>
+                            <a class="dropdown-item" th:href="@{~/rezept/findVerfuegbare}">Kochbare Rezepte anzeigen</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" th:href="@{~/rezept/edit}">Rezept hinzufügen</a>
+                            <a class="dropdown-item" th:href="@{~/zutat/edit}">Zutat zu Rezept hinzufügen</a>
+                            <a class="dropdown-item" th:href="@{~/rezept/freieRezepte}">Rezept zusammenstellen</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Vorratskammer
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" th:href="@{~/vorratskammer/findAll}">Zutaten anzeigen</a>
+                            <a class="dropdown-item" th:href="@{~/vorratskammer/edit}">Zutaten hinzufügen</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-5 font-weight-normal">Sofort loskochen!</h1>
+    <p class="lead font-weight-normal">Bei uns kannst du dir Rezepte nach den Zutaten anzeigen lassen, die du zuhause hast. </p>
+    <p class="lead font-weight-normal">Jetzt einloggen und loslegen!</p>
+    <a class="btn btn-outline-secondary" th:href="@{~/rezept/findAll}">Rezepte anzeigen</a>
+    </div>
+    <div class="product-device box-shadow d-none d-md-block"></div>
+    <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+</div>  
+    
+<div class="well text-center">
+    <div class="img-fluid">
+        <a><img src="https://i.ibb.co/26mdtQB/meal.jpg" width= "100%" height= auto alt="meals"></a>
+    </div>
+</div>
+    
+	<div th:include="foot::foot"></div>
+</body>
+</html>

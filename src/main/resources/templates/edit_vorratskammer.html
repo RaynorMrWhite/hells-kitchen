@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+
+    <!-- <nav th:include="navigation::navigation"></nav> -->
+    <nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{~/home}">
+                <img src="https://i.ibb.co/pzxh93Q/hk-logo.png" width="77" height="77" class="d-inline-block align-top" alt="HK"></a>
+
+            <!-- Navbar Start -->
+            <a class="navbar-brand" th:href="@{~/home}"
+            >Hell's Kitchen</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Rezepte
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" th:href="@{~/rezept/findAll}">Alle Rezepte anzeigen</a>
+                            <a class="dropdown-item" th:href="@{~/rezept/findVerfuegbare}">Kochbare Rezepte anzeigen</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" th:href="@{~/rezept/edit}">Rezept hinzufügen</a>
+                            <a class="dropdown-item" th:href="@{~/zutat/edit}">Zutat zu Rezept hinzufügen</a>
+                            <a class="dropdown-item" th:href="@{~/rezept/freieRezepte}">Rezept zusammenstellen</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Vorratskammer
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" th:href="@{~/vorratskammer/findAll}">Zutaten anzeigen</a>
+                            <a class="dropdown-item" th:href="@{~/vorratskammer/edit}">Zutaten hinzufügen</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+	<p>
+	<div class="container-fluid">
+		<form method="post" action="save" th:object="${vorratskammer}">
+			<div><input type="hidden" name="id"/></div>
+			<div class="form-group">
+                <label for="zutatname"><h2>Vorratskammer</h2></label></br>
+				<label for="zutatname">Hier kannst du Zutaten zu deiner Vorratskammer hinzufügen</label>
+				<input type="text" class="form-control" id="zutatName" name="zutatname" th:value="*{zutatname}" placeholder="Name der Zutat"/>
+			</div>
+			<div class="form-group">
+				<label for="mengeingramm">Mengenangabe in Gramm</label>
+				<input type="number" class="form-control" id="mengederzutat" name="mengeingramm" th:value="*{mengeingramm}"/>
+			</div>
+			<button type="submit" class="btn btn-default">Änderungen übernehmen</button>
+		</form>
+	</div>
+	</p>
+    <div th:include="foot::foot"></div>   
+    </body>
+</html>
